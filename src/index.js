@@ -1,19 +1,22 @@
 /**
  * es6 modules and imports
  */
+import { getMovies } from './api.js';
 import sayHello from './hello';
-sayHello('World');
+import { buildHTML } from './build-html';
+import $ from "jquery";
 
-/**
- * require style imports
- */
-const {getMovies} = require('./api.js');
+//snagging html elements
+let movieHtml = $(".movies");
+
 
 getMovies().then((movies) => {
-  console.log('Here are all the movies:');
+  let html = "";
   movies.forEach(({title, rating, id}) => {
-    console.log(`id#${id} - ${title} - rating: ${rating}`);
+    // console.log(`id#${id} - ${title} - rating: ${rating}`);
+      html += buildHTML(title,rating,id);
   });
+  movieHtml.html(html);
 }).catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
