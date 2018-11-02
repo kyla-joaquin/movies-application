@@ -5,11 +5,14 @@ import { getMovies } from './api.js';
 import sayHello from './hello';
 import { buildHTML } from './build-html';
 import $ from "jquery";
+import { addMovie } from "./add";
 
 //snagging html elements
 let movieHtml = $(".movies");
+let addButton = $("#submitMovie");
 
 
+//display movies
 getMovies().then((movies) => {
   let html = "";
   movies.forEach(({title, rating, id}) => {
@@ -21,3 +24,11 @@ getMovies().then((movies) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
 });
+
+
+//add movies
+addButton.on('click', function (e) {
+  e.preventDefault();
+   addMovie(movie);
+});
+
