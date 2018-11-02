@@ -6,6 +6,7 @@ import sayHello from './hello';
 import { buildHTML } from './build-html';
 import $ from "jquery";
 import { addMovie } from "./add";
+import { options } from "./add";
 
 //snagging html elements
 let movieHtml = $(".movies");
@@ -29,6 +30,11 @@ getMovies().then((movies) => {
 //add movies
 addButton.on('click', function (e) {
   e.preventDefault();
-   addMovie(movie);
+  const newMovie = {
+      "title": $('#title').val(),
+    "rating": $('#rating').val()
+  };
+   addMovie(newMovie);
 });
+
 
