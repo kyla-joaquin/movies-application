@@ -12,7 +12,7 @@ body: JSON.stringify(addMovie)
 
 
 export const addMovie = (newMovie) => {
-    return fetch('/api/movies', options)
+    return fetch('./api/movies', options)
         .then(response => response.json());
 };
 
