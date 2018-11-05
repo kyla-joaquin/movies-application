@@ -16,6 +16,11 @@ let movieHtml = $(".movies");
 let addButton = $("#submitMovie");
 
 
+//TODO
+// 1) Fix the buttons. Right now you can only use 1 per load
+// 2) FIx the update functionality
+
+
 
 //display movies
 const loadMovies= () => {
@@ -40,8 +45,16 @@ loadMovies().then( (e => {
             e.preventDefault();
             $(".edit").toggleClass("noShow");
             let id = ($(e.target).prev().prev().children('span').text());
+            id = parseFloat(id);
             getMovieInfo(id);
-            // editMovie(id);
+            $("#editMovie").on('click', (e) => {
+                e.preventDefault();
+                let newTitle = $("#editTitle").val();
+                let newRating = $("#editRating").val();
+                editMovie(id, newTitle, newRating);
+                loadMovies();
+            });
+
         });
     });
 

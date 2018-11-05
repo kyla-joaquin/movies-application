@@ -1,25 +1,13 @@
 {
   "movies": [
     {
-      "id": 6
+      "id": 1
     },
     {
-      "id": 7
+      "id": 2
     },
     {
-      "title": "Hocus Pocus",
-      "rating": 1,
-      "id": 8
-    },
-    {
-      "title": "Little Mermaid",
-      "rating": 1,
-      "id": 9
-    },
-    {
-      "title": "Little Mermaid",
-      "rating": 1,
-      "id": 10
+      "id": 3
     }
   ]
 }
