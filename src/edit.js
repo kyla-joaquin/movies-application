@@ -10,13 +10,12 @@ export const editMovie = (id) => {
 };
 
 export const getMovieInfo = (id) => {
-    fetch(`./api/movies/${id}`, {
+    fetch(`./api/movies`, {
         "method": "GET",
         "headers": {
             "Content-Type": "application/json"}
     })
-        .then(response => {
-            let jsonString = JSON.stringify(response);
-            console.log(jsonString.movies);
+        .then(response => response.json()).then(response => {
+            console.log(response[0]['id']);
         });
-}
+};

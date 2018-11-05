@@ -37,21 +37,22 @@ loadMovies().then( (e => {
 }))
     .then( (e) => { //TODO: Move this to it's own event and remove this .then
         $(".editBtn").on('click', (e) => {
+            e.preventDefault();
             $(".edit").toggleClass("noShow");
             let id = ($(e.target).prev().prev().children('span').text());
             getMovieInfo(id);
-            editMovie(id);
+            // editMovie(id);
         });
     });
 
 
-//delete movies
-$(".movies").on('click', $(".card"), (e) => {
-    e.preventDefault();
-    let id = ($(e.target).prev().children('span').text());
-    deleteMovie(id);
-    loadMovies();
-});
+// delete movies
+// $(".movies").on('click', $(".card"), (e) => {
+//     e.preventDefault();
+//     let id = ($(e.target).prev().children('span').text());
+//     deleteMovie(id);
+//     loadMovies();
+// });
 
 
 //add movies
@@ -67,14 +68,6 @@ addButton.on('click', (e) => {
 });
 
 
-
-//edit movies
-// $(".movies").on('click', (e) => {
-//     console.log("Hi");
-//     $(".edit").toggleClass("noShow");
-//     let id = ($(e.target).prev().prev().children('span').text());
-//     // editMovie(id);
-// });
 
 
 
