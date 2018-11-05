@@ -7,6 +7,7 @@ export const buildHTML = (title, rating, id) => {
     html += `<h4 class="card-title"> ${title} </h4>`;
     html += `<p class="card-text"> Rated: ${rating}, ID: <span class="id">${id}</span></p>`;
     html += `<button class="deleteBtn"> Delete </button>`;
+    html += `<button class="editBtn"> Edit </button>`;
     html += `</div>`;
     html += `</div>`;
     return html;
