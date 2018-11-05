@@ -5,7 +5,8 @@ export const buildHTML = (title, rating, id) => {
     html += `<img class="card-img-top" src="https://picsum.photos/200/300">`;
     html += `<div class="card-body">`;
     html += `<h4 class="card-title"> ${title} </h4>`;
-    html += `<p class="card-text"> Rated: ${rating}, ID: ${id}</p>`;
+    html += `<p class="card-text"> Rated: ${rating}, ID: <span class="id">${id}</span></p>`;
+    html += `<button class="deleteBtn"> Delete </button>`;
     html += `</div>`;
     html += `</div>`;
     return html;
