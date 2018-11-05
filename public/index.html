@@ -13,6 +13,23 @@
             <p>To get started, edit <code>src/index.js</code>.</p>
 
             <div class="movies col-8"></div>
+
+            <div class="col-4">
+                <form>
+                    <label for="title"> Title of Movie</label>
+                    <input type="text" id="title">
+
+                    <select id="rating">
+                        <option> * </option>
+                        <option> ** </option>
+                        <option> *** </option>
+                        <option> **** </option>
+                        <option> ***** </option>
+                    </select>
+
+                    <button class="btn-primary" id="submitMovie"> Add it!</button>
+                </form>
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
