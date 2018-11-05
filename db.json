@@ -1,8 +1,11 @@
 {
   "movies": [
     {
-      "title": "Cows",
-      "rating": 2,
+      "id": 1
+    },
+    {
+      "title": "Hi",
+      "rating": 1,
       "id": 2
     }
   ]

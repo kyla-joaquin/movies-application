@@ -8,6 +8,8 @@ import { buildHTML } from './build-html';
 import { addMovie } from "./add";
 import { getRating } from "./add";
 import { deleteMovie } from "./delete";
+import { editMovie } from "./edit";
+import { getMovieInfo} from "./edit";
 
 //snagging html elements
 let movieHtml = $(".movies");
@@ -30,10 +32,21 @@ const loadMovies= () => {
     });
 };
 
-loadMovies();
+loadMovies().then( (e => {
+    $(".loading").toggleClass("noShow");
+}))
+    .then( (e) => { //TODO: Move this to it's own event and remove this .then
+        $(".editBtn").on('click', (e) => {
+            $(".edit").toggleClass("noShow");
+            let id = ($(e.target).prev().prev().children('span').text());
+            getMovieInfo(id);
+            editMovie(id);
+        });
+    });
+
 
 //delete movies
-$(".movies").on('click', $('.card'), (e) => {
+$(".movies").on('click', $(".card"), (e) => {
     e.preventDefault();
     let id = ($(e.target).prev().children('span').text());
     deleteMovie(id);
@@ -53,9 +66,15 @@ addButton.on('click', (e) => {
    loadMovies();
 });
 
+
+
 //edit movies
-
-
+// $(".movies").on('click', (e) => {
+//     console.log("Hi");
+//     $(".edit").toggleClass("noShow");
+//     let id = ($(e.target).prev().prev().children('span').text());
+//     // editMovie(id);
+// });
 
 
 
