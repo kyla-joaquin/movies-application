@@ -53,6 +53,9 @@ addButton.on('click', (e) => {
    loadMovies();
 });
 
+//edit movies
+
+
 
 
 
