@@ -12,7 +12,7 @@ import { deleteMovie } from "./delete";
 //snagging html elements
 let movieHtml = $(".movies");
 let addButton = $("#submitMovie");
-let deleteButton = $(".deleteBtn");
+
 
 
 //display movies
@@ -30,16 +30,16 @@ const loadMovies= () => {
     });
 };
 
-loadMovies().then(() => {
-    //delete movies
-    $('.deleteBtn').on('click', (e) => {
-        e.preventDefault();
-        let id = $(this).parent().eq(4).children('span').text();
-        console.log(id);
-        // deleteMovie(id);
-        // loadMovies();
-    });
+loadMovies();
+
+//delete movies
+$(".movies").on('click', $('.card'), (e) => {
+    e.preventDefault();
+    let id = ($(e.target).prev().children('span').text());
+    deleteMovie(id);
+    loadMovies();
 });
+
 
 //add movies
 addButton.on('click', (e) => {
@@ -55,9 +55,5 @@ addButton.on('click', (e) => {
 
 
 
-
-
-
-//grab the value of the span with a class of id in the previous sibling
 
 
