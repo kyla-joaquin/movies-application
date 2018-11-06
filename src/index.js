@@ -30,6 +30,7 @@ const loadMovies= () => {
             html += buildHTML(title, rating, id);
         });
         movieHtml.html(html);
+        $('.carousel-item').first().toggleClass('active');
     }).catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);

@@ -12,15 +12,30 @@
     </style>
 </head>
 <body>
+    <div class="movieBackground"></div>
     <div class="container">
 
         <div class="row">
             <h1 class="loading"> Loading....</h1>
 
-            <div class="movies col-8"></div>
+            <div id='carouselControls' class=" col-8 carousel slide carousel-fade mainContent">
+                <div class="carousel-inner">
+                    <div class="movies"></div>
+                </div>
+                <a class="carousel-control-prev"
+                   href="#carouselControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next"
+                   href="#carouselControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
 
             <div class="col-4">
-                <form>
+                <form class="formBackground">
                     <label for="title"> Title of Movie</label>
                     <input type="text" id="title">
 
@@ -34,7 +49,7 @@
 
                     <button class="btn-primary" id="submitMovie"> Add it!</button>
                 </form>
-                <div class="edit noShow">
+                <div class="edit formBackground noShow">
                     <form>
                         <label for="editTitle"> Title of Movie</label>
                         <input type="text" id="editTitle">
