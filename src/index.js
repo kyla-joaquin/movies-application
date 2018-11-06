@@ -18,7 +18,6 @@ let addButton = $("#submitMovie");
 
 //TODO
 // 1) Fix the buttons. Right now you can only use 1 per load
-// 2) FIx the update functionality
 
 
 
@@ -39,39 +38,15 @@ const loadMovies= () => {
 
 loadMovies().then( (e => {
     $(".loading").toggleClass("noShow");
-}))
-    .then((response) => {
-        //edit movies
-        $(".editBtn").on('click', (e) => {
-            e.preventDefault();
-            $(".edit").toggleClass("noShow");
-            let id = ($(e.target).prev().prev().children('span').text());
-            id = parseFloat(id);
-            getMovieInfo(id);
-            $("#editMovie").on('click', (e) => {
-                e.preventDefault();
-                let newTitle = $("#editTitle").val();
-                let newRating = $("#editRating").val();
-                newRating = getRating(newRating);
-                let changedMovie = {
-                    "title": newTitle,
-                    "rating": newRating
-                };
-                editMovie(id, changedMovie);
-                loadMovies();
-            });
-        });
-    });
-
-
+}));
 
 // delete movies
-// $(".movies").on('click', $(".card"), (e) => {
-//     e.preventDefault();
-//     let id = ($(e.target).prev().children('span').text());
-//     deleteMovie(id);
-//     loadMovies();
-// });
+$(document).on('click', "button.deleteBtn" , (e) => {
+    e.preventDefault();
+    let id = ($(e.target).prev().children('span').text());
+    deleteMovie(id);
+    loadMovies();
+});
 
 
 //add movies
@@ -86,10 +61,25 @@ addButton.on('click', (e) => {
    loadMovies();
 });
 
-
-
-
-
-
+//edit movies
+$(document).on('click', "button.editBtn", (e) => {
+    e.preventDefault();
+    $(".edit").toggleClass("noShow");
+    let id = ($(e.target).prev().prev().children('span').text());
+    id = parseFloat(id);
+    getMovieInfo(id);
+    $("#editMovie").on('click', (e) => {
+        e.preventDefault();
+        let newTitle = $("#editTitle").val();
+        let newRating = $("#editRating").val();
+        newRating = getRating(newRating);
+        let changedMovie = {
+            "title": newTitle,
+            "rating": newRating
+        };
+        editMovie(id, changedMovie);
+        loadMovies();
+    });
+});
 
 
