@@ -11,4 +11,4 @@ export const buildHTML = (title, rating, id) => {
     html += `</div>`;
     html += `</div>`;
     return html;
-}
+};
