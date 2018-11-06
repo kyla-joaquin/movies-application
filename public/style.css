@@ -3,8 +3,10 @@ html, body {
 }
 
 img {
-    height: 250px;
-    width: 50%;
+    /*background-size: contain;*/
+    object-fit: cover;
+    height: 200px;
+    width:  150px;
 }
 
 .container {
@@ -12,4 +14,27 @@ img {
     /*top: 50%;*/
     /*transform: translateY(-100%);*/
     /*text-align: center;*/
+}
+
+.movieBackground {
+    background-image: url('img/movies.jpg');
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: .9;
+}
+
+.formBackground {
+    background-color: #80fffd;
+    border-radius: 5px;
+    padding: 30px;
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+.mainContent {
+    margin-top: 200px;
 }
