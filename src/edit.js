@@ -1,24 +1,14 @@
 "use strict";
 
 //changing the movie's info
-export const editMovie = (id, title, rating) => {
+export const editMovie = (id, editedMovie) => {
     fetch(`./api/movies/${id}`, {
         "method": "PUT",
         "headers": {
-            "Content-Type": "application/json"}
-    })
-        .then(response => response.json())
-        .then(response => {
-            for ( let i = 0; i < response.length; i ++){
-                if( response[i]['id'] === id){
-                        response[i]['title'] = title;
-                        response[i]['rating'] = rating;
-
-                }
-            }
-        });
+            "Content-Type": "application/json"},
+        body: JSON.stringify(editedMovie)})
+        .then(response => JSON.stringify(response));
 };
-
 
 
 //Grabbing the info of the movie to display

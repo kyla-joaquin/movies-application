@@ -40,7 +40,8 @@ const loadMovies= () => {
 loadMovies().then( (e => {
     $(".loading").toggleClass("noShow");
 }))
-    .then( (e) => { //TODO: Move this to it's own event and remove this .then
+    .then((response) => {
+        //edit movies
         $(".editBtn").on('click', (e) => {
             e.preventDefault();
             $(".edit").toggleClass("noShow");
@@ -51,12 +52,17 @@ loadMovies().then( (e => {
                 e.preventDefault();
                 let newTitle = $("#editTitle").val();
                 let newRating = $("#editRating").val();
-                editMovie(id, newTitle, newRating);
+                newRating = getRating(newRating);
+                let changedMovie = {
+                    "title": newTitle,
+                    "rating": newRating
+                };
+                editMovie(id, changedMovie);
                 loadMovies();
             });
-
         });
     });
+
 
 
 // delete movies
@@ -79,6 +85,8 @@ addButton.on('click', (e) => {
    addMovie(newMovie);
    loadMovies();
 });
+
+
 
 
 
