@@ -1,3 +1,9 @@
 {
-  "movies": []
+  "movies": [
+    {
+      "title": "Howl's Moving Castle",
+      "rating": 4,
+      "id": 1
+    }
+  ]
 }

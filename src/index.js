@@ -8,10 +8,17 @@ import { buildHTML } from './build-html';
 import { addMovie } from "./add";
 import { getRating } from "./add";
 import { deleteMovie } from "./delete";
+import { editMovie } from "./edit";
+import { getMovieInfo} from "./edit";
 
 //snagging html elements
 let movieHtml = $(".movies");
 let addButton = $("#submitMovie");
+
+
+//TODO
+// 1) Fix the buttons. Right now you can only use 1 per load
+// 2) FIx the update functionality
 
 
 
@@ -30,15 +37,41 @@ const loadMovies= () => {
     });
 };
 
-loadMovies();
+loadMovies().then( (e => {
+    $(".loading").toggleClass("noShow");
+}))
+    .then((response) => {
+        //edit movies
+        $(".editBtn").on('click', (e) => {
+            e.preventDefault();
+            $(".edit").toggleClass("noShow");
+            let id = ($(e.target).prev().prev().children('span').text());
+            id = parseFloat(id);
+            getMovieInfo(id);
+            $("#editMovie").on('click', (e) => {
+                e.preventDefault();
+                let newTitle = $("#editTitle").val();
+                let newRating = $("#editRating").val();
+                newRating = getRating(newRating);
+                let changedMovie = {
+                    "title": newTitle,
+                    "rating": newRating
+                };
+                editMovie(id, changedMovie);
+                loadMovies();
+            });
+        });
+    });
 
-//delete movies
-$(".movies").on('click', $('.card'), (e) => {
-    e.preventDefault();
-    let id = ($(e.target).prev().children('span').text());
-    deleteMovie(id);
-    loadMovies();
-});
+
+
+// delete movies
+// $(".movies").on('click', $(".card"), (e) => {
+//     e.preventDefault();
+//     let id = ($(e.target).prev().children('span').text());
+//     deleteMovie(id);
+//     loadMovies();
+// });
 
 
 //add movies
@@ -52,6 +85,9 @@ addButton.on('click', (e) => {
    addMovie(newMovie);
    loadMovies();
 });
+
+
+
 
 
 
