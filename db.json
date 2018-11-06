@@ -1,9 +1,9 @@
 {
   "movies": [
     {
-      "title": "Cows",
-      "rating": 2,
-      "id": 2
+      "title": "Howl's Moving Castle",
+      "rating": 4,
+      "id": 1
     }
   ]
 }
