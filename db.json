@@ -1,14 +1,24 @@
 {
   "movies": [
     {
-      "title": "Hocus Pocus",
-      "rating": 3,
-      "id": 3
+      "title": "Spider Man",
+      "rating": 2,
+      "id": 7
     },
     {
-      "title": "Little Mermaid 2",
-      "rating": 3,
-      "id": 4
+      "title": "The Grinch",
+      "rating": 5,
+      "id": 8
+    },
+    {
+      "title": "Shrek",
+      "rating": 5,
+      "id": 9
+    },
+    {
+      "title": "Star Wars IV",
+      "rating": 5,
+      "id": 10
     }
   ]
 }
