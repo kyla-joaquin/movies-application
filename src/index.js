@@ -44,7 +44,9 @@ loadMovies().then( (e => {
 // delete movies
 $(document).on('click', "button.deleteBtn" , (e) => {
     e.preventDefault();
-    let id = ($(e.target).prev().children('span').text());
+    // let id = ($(e.target).prev().children('span').text());
+    let id = $(e.target).attr('id');
+    id = parseFloat(id);
     deleteMovie(id);
     loadMovies();
 });
@@ -66,7 +68,8 @@ addButton.on('click', (e) => {
 $(document).on('click', "button.editBtn", (e) => {
     e.preventDefault();
     $(".edit").toggleClass("noShow");
-    let id = ($(e.target).prev().prev().children('span').text());
+    // let id = ($(e.target).prev().prev().children('span').text());
+    let id = $(e.target).attr('id');
     id = parseFloat(id);
     getMovieInfo(id);
     $("#editMovie").on('click', (e) => {
